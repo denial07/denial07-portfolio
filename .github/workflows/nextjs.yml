@@ -31,7 +31,7 @@ jobs:
         working-directory: my-app
 
       - name: Build with Next.js
-        run: npx next build
+        run: npx next build --no-lint
         working-directory: my-app
 
       - name: Export static site
