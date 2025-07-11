@@ -26,7 +26,7 @@ import { AnimatedBackground } from "./components/animated-background"
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [_activeProject, _setActiveProject] = useState(0)
+  const [activeProject, setActiveProject] = useState(0)
   const [activeFilter, setActiveFilter] = useState("All")
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +35,7 @@ export default function Portfolio() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [_submitStatus, _setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
 
   const projects = [
@@ -144,16 +144,16 @@ export default function Portfolio() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    _setSubmitStatus("idle")
+    setSubmitStatus("idle")
 
     // Simulate form submission
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
       console.log("Form submitted:", formData)
-      _setSubmitStatus("success")
+      setSubmitStatus("success")
       setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
-      _setSubmitStatus("error")
+      setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
     }
@@ -413,7 +413,7 @@ export default function Portfolio() {
               <Card
                 key={index}
                 className="group hover:shadow-lg transition-all duration-300 cursor-pointer"
-                onMouseEnter={() => _setActiveProject(index)}
+                onMouseEnter={() => setActiveProject(index)}
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="relative overflow-hidden">
@@ -581,15 +581,16 @@ export default function Portfolio() {
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
 
-                  {_submitStatus === "success" && (
+                  {submitStatus === "success" && (
                     <div className="text-green-600 text-center mt-4">
                       Message sent successfully! I'll get back to you soon.
                     </div>
                   )}
 
-                  {_submitStatus === "error" && (
+                  {submitStatus === "error" && (
                     <div className="text-red-600 text-center mt-4">Failed to send message. Please try again.</div>
                   )}
+
                 </form>
               </CardContent>
             </Card>
