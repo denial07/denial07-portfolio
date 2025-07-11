@@ -26,7 +26,7 @@ import { AnimatedBackground } from "./components/animated-background"
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeProject, setActiveProject] = useState(0)
+  const [_activeProject, _setActiveProject] = useState(0)
   const [activeFilter, setActiveFilter] = useState("All")
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +35,7 @@ export default function Portfolio() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [_submitStatus, _setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
 
   const projects = [
@@ -144,16 +144,16 @@ export default function Portfolio() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setSubmitStatus("idle")
+    _setSubmitStatus("idle")
 
     // Simulate form submission
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
       console.log("Form submitted:", formData)
-      setSubmitStatus("success")
+      _setSubmitStatus("success")
       setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
-      setSubmitStatus("error")
+      _setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
     }
@@ -321,7 +321,7 @@ export default function Portfolio() {
                 key={label}
                 onClick={() => handleSocialClick(label, url)}
                 className="group relative p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-slate-300/80 hover:text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:rotate-6"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: '${index * 0.1}s' }}
               >
                 <Icon className="h-6 w-6 group-hover:scale-110 transition-transform" />
                 <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
@@ -413,7 +413,7 @@ export default function Portfolio() {
               <Card
                 key={index}
                 className="group hover:shadow-lg transition-all duration-300 cursor-pointer"
-                onMouseEnter={() => setActiveProject(index)}
+                onMouseEnter={() => _setActiveProject(index)}
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="relative overflow-hidden">
@@ -497,7 +497,7 @@ export default function Portfolio() {
                   <div className="w-full bg-muted rounded-full h-2">
                     <div
                       className="bg-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
+                      style={{ width: '${skill.level}%' }}
                     />
                   </div>
                 </div>
@@ -581,13 +581,13 @@ export default function Portfolio() {
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
 
-                  {submitStatus === "success" && (
+                  {_submitStatus === "success" && (
                     <div className="text-green-600 text-center mt-4">
                       Message sent successfully! I'll get back to you soon.
                     </div>
                   )}
 
-                  {submitStatus === "error" && (
+                  {_submitStatus === "error" && (
                     <div className="text-red-600 text-center mt-4">Failed to send message. Please try again.</div>
                   )}
                 </form>
