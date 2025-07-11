@@ -43,7 +43,7 @@ export default function Portfolio() {
       title: "Thrifty (E-Commerce Platform)",
       description:
         "Full-stack e-commerce solution with React, Node.js, and PostgreSQL featuring user authentication, payment processing, and admin dashboard.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "=../public/profile.jpg",
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Redux", "Express"],
       github: "https://github.com/daniel/ecommerce",
       live: "https://ecommerce-demo.com",
@@ -61,7 +61,7 @@ export default function Portfolio() {
       title: "Task Management App",
       description:
         "Collaborative task management tool with real-time updates, team collaboration features, and intuitive drag-and-drop interface.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "=../public/profile.jpg",
       technologies: ["Next.js", "Socket.io", "MongoDB", "Tailwind", "TypeScript", "Prisma"],
       github: "https://github.com/daniel/taskapp",
       live: "https://taskapp-demo.com",
@@ -79,7 +79,7 @@ export default function Portfolio() {
       title: "Weather Dashboard",
       description:
         "Interactive weather dashboard with data visualization, location-based forecasts, and historical weather data analysis.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "=../public/profile.jpg",
       technologies: ["Vue.js", "D3.js", "Express", "Weather API", "Chart.js", "Axios"],
       github: "https://github.com/daniel/weather",
       live: "https://weather-dashboard-demo.com",
@@ -97,7 +97,7 @@ export default function Portfolio() {
       title: "API Gateway Service",
       description:
         "Microservices API gateway with authentication, rate limiting, load balancing, and comprehensive monitoring capabilities.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "=../public/profile.jpg",
       technologies: ["Go", "Redis", "Docker", "Kubernetes", "Prometheus", "Grafana"],
       github: "https://github.com/daniel/api-gateway",
       live: null,
@@ -256,7 +256,7 @@ export default function Portfolio() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 rounded-full blur-lg opacity-75 animate-pulse-slow"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-400 rounded-full blur-xl opacity-50 animate-spin-slow"></div>
               <Image
-                src="/placeholder.svg?height=150&width=150"
+                src="../public/profile.jpg"
                 alt="Daniel's Profile"
                 width={150}
                 height={150}
@@ -418,7 +418,7 @@ export default function Portfolio() {
               >
                 <div className="relative overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image || "=../public/profile.jpg"}
                     alt={project.title}
                     width={500}
                     height={300}
@@ -626,7 +626,7 @@ export default function Portfolio() {
 
               <div className="relative h-64 sm:h-80 overflow-hidden rounded-t-lg">
                 <Image
-                  src={selectedProject.image || "/placeholder.svg"}
+                  src={selectedProject.image || "=../public/profile.jpg"}
                   alt={selectedProject.title}
                   width={800}
                   height={400}
