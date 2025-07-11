@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: {
-    unoptimized: true, // okay if you're not using Image Optimization
-  },
-};
+  // Remove export and basePath for Vercel!
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
