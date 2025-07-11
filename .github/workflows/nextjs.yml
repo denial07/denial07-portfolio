@@ -34,8 +34,9 @@ jobs:
         run: npx next build --no-lint
         working-directory: my-app
 
-      - name: Export static site
-        run: npx next export
+      - name: Copy static export
+        run: |
+          cp -r .next/output/export out
         working-directory: my-app
 
       - name: Upload artifact
