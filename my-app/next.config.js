@@ -1,10 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  trailingSlash: true,
-  images: { unoptimized: true },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-};
+const isGithubPages = process.env.NODE_ENV === "production";
 
-module.exports = nextConfig;
+const repo = "denial07-portfolio"; // Replace with your GitHub repo name
+
+module.exports = {
+  output: "export",
+  images: { unoptimized: true },
+  basePath: isGithubPages ? `/${repo}` : "",
+  assetPrefix: isGithubPages ? `/${repo}/` : "",
+}
