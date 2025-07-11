@@ -331,13 +331,13 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll Indicator
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <div className="flex flex-col items-center text-white/60">
               <span className="text-sm mb-2">Scroll to explore</span>
               <ChevronDown className="h-5 w-5 animate-pulse" />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
